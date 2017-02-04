@@ -39,21 +39,6 @@ var SearchExample = React.createClass({
 
     },
 
-    // handleClick: function(e) {
-    //
-    // },
-
-    handleClick: function(e) {
-
-      ReactDOM.render(
-          <h1>Hello!</h1>,
-          document.getElementById('container')
-          // <input type="button" value="go back" onClick={this.handleClickBack}/>,
-          // document.getElementById('back-button')
-
-      );
-    },
-
     render: function() {
 
 
@@ -73,8 +58,20 @@ var SearchExample = React.createClass({
 
                 </div>;
 
+    },
+
+    handleClick: function(e) {
+
+      ReactDOM.render(
+          <h1>Hello!</h1>,
+          document.getElementById('container')
+
+      )
     }
+
 });
+
+
 
 
 // Render the SearchExample component on the page
