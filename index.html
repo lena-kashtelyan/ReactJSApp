@@ -19,6 +19,9 @@
 
 <script type="application/javascript;version=1.7" language="JavaScript 1.7">//<![CDATA[
 
+
+// ======================= PAGE CLASSES BEGIN =======================
+
 var FirstPage = React.createClass({
 
     getInitialState: function(){
@@ -53,8 +56,9 @@ var FirstPage = React.createClass({
 
     render: function() {
       return <div>
-        <h1>Hello!</h1>
+        <h1>Second Page!</h1>
         <input type="button" value="go back" onClick={this.handleBack}/>
+        <input type="button" value="go on" onClick={this.handleForth}/>
       </div>;
 
     },
@@ -64,9 +68,69 @@ var FirstPage = React.createClass({
         <FirstPage />,
         document.getElementById('container')
       );
+    },
+
+    handleForth: function(e) {
+      ReactDOM.render(
+        <ThirdPage />,
+        document.getElementById('container')
+      );
     }
 
   });
+
+  var ThirdPage = React.createClass({
+
+    render: function() {
+      return <div>
+        <h1>Third Page!</h1>
+        <input type="button" value="go back" onClick={this.handleBack}/>
+        <input type="button" value="go on" onClick={this.handleForth}/>
+      </div>;
+
+    },
+
+    handleBack: function(e) {
+      ReactDOM.render(
+        <SecondPage />,
+        document.getElementById('container')
+      );
+    },
+
+    handleForth: function(e) {
+      ReactDOM.render(
+        <FourthPage />,
+        document.getElementById('container')
+      );
+    }
+
+  });
+
+  var FourthPage = React.createClass({
+
+    render: function() {
+      return <div>
+        <h1>Last, fourth Page!</h1>
+        <input type="button" value="go back" onClick={this.handleBack}/>
+        <input type="button" value="go on" onClick={this.handleForth}/>
+      </div>;
+
+    },
+
+    handleBack: function(e) {
+      ReactDOM.render(
+        <ThirdPage />,
+        document.getElementById('container')
+      );
+    }
+
+  });
+
+
+
+// ======================= PAGE CLASSES END =======================
+
+// ACTUALLY RENDER THE FIRST PAGE
 
   ReactDOM.render(
     <FirstPage />,
