@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+  <style>.react-layout-components--box {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }</style>
+  
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="robots" content="noindex, nofollow">
   <meta name="googlebot" content="noindex, nofollow">
@@ -18,127 +27,7 @@
 
 
 <script type="application/javascript;version=1.7" language="JavaScript 1.7">//<![CDATA[
-
-
-// ======================= PAGE CLASSES BEGIN =======================
-
-var FirstPage = React.createClass({
-
-    getInitialState: function(){
-        return { searchString: '' };
-    },
-
-    handleChange: function(e){
-        this.setState({searchString:e.target.value});
-    },
-
-    render: function() {
-        var searchString = this.state.searchString.trim().toLowerCase();
-        return <div>
-        			<h1>Intro</h1>
-              <p>This is an app that empowers you to voice your political opinion by streamlining the political interaction process! We do this by finding what government officials are most relevant to where you live, getting their contact info, estimating what impact you can have with them, and then providing templates for you to call, email, or write to your official. With our app, we hope to streamline your political action so that it takes only 5 or 10 minutes to do. Enter your zip below to begin!</p>
-              <br></br><br></br><br></br><br></br>
-              <input type="text" value={this.state.searchString} onChange={this.handleChange} placeholder="Zipcode" />
-              <input type="button" value="GO" onClick={this.handleGo}/>
-              </div>;
-    },
-
-    handleGo: function(e) {
-      ReactDOM.render(
-        <SecondPage />,
-        document.getElementById('container')
-      );
-    }
-
-  });
-
-  var SecondPage = React.createClass({
-
-    render: function() {
-      return <div>
-        <h1>Second Page!</h1>
-        <input type="button" value="go back" onClick={this.handleBack}/>
-        <input type="button" value="go on" onClick={this.handleForth}/>
-      </div>;
-
-    },
-
-    handleBack: function(e) {
-      ReactDOM.render(
-        <FirstPage />,
-        document.getElementById('container')
-      );
-    },
-
-    handleForth: function(e) {
-      ReactDOM.render(
-        <ThirdPage />,
-        document.getElementById('container')
-      );
-    }
-
-  });
-
-  var ThirdPage = React.createClass({
-
-    render: function() {
-      return <div>
-        <h1>Third Page!</h1>
-        <input type="button" value="go back" onClick={this.handleBack}/>
-        <input type="button" value="go on" onClick={this.handleForth}/>
-      </div>;
-
-    },
-
-    handleBack: function(e) {
-      ReactDOM.render(
-        <SecondPage />,
-        document.getElementById('container')
-      );
-    },
-
-    handleForth: function(e) {
-      ReactDOM.render(
-        <FourthPage />,
-        document.getElementById('container')
-      );
-    }
-
-  });
-
-  var FourthPage = React.createClass({
-
-    render: function() {
-      return <div>
-        <h1>Last, fourth Page!</h1>
-        <input type="button" value="go back" onClick={this.handleBack}/>
-        <input type="button" value="go on" onClick={this.handleForth}/>
-      </div>;
-
-    },
-
-    handleBack: function(e) {
-      ReactDOM.render(
-        <ThirdPage />,
-        document.getElementById('container')
-      );
-    }
-
-  });
-
-
-
-// ======================= PAGE CLASSES END =======================
-
-// ACTUALLY RENDER THE FIRST PAGE
-
-  ReactDOM.render(
-    <FirstPage />,
-    document.getElementById('container')
-  );
-
 </script>
-
 
 </head>
 
@@ -162,7 +51,7 @@ var FirstPage = React.createClass({
     }], "*")
   }
 </script>
-
+<script src="bundle.js"></script>
 </body>
 
 </html>
