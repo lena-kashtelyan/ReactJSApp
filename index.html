@@ -19,80 +19,61 @@
 
 <script type="application/javascript;version=1.7" language="JavaScript 1.7">//<![CDATA[
 
-
-
-// Let's create a "real-time search" component
-
-var SearchExample = React.createClass({
+var FirstPage = React.createClass({
 
     getInitialState: function(){
         return { searchString: '' };
     },
 
     handleChange: function(e){
-
-        // If you comment out this line, the text box will not change its value.
-        // This is because in React, an input cannot change independently of the value
-        // that was assigned to it. In our case this is this.state.searchString.
-
         this.setState({searchString:e.target.value});
-
     },
 
     render: function() {
-
-
         var searchString = this.state.searchString.trim().toLowerCase();
-
-
         return <div>
         			<h1>Intro</h1>
               <p>This is an app that empowers you to voice your political opinion by streamlining the political interaction process! We do this by finding what government officials are most relevant to where you live, getting their contact info, estimating what impact you can have with them, and then providing templates for you to call, email, or write to your official. With our app, we hope to streamline your political action so that it takes only 5 or 10 minutes to do. Enter your zip below to begin!</p>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
+              <br></br><br></br><br></br><br></br>
+              <input type="text" value={this.state.searchString} onChange={this.handleChange} placeholder="Zipcode" />
+              <input type="button" value="GO" onClick={this.handleGo}/>
+              </div>;
+    },
 
-                    <input type="text" value={this.state.searchString} onChange={this.handleChange} placeholder="Zipcode" />
-                    <input type="button" value="GO" onClick={this.handleClick}/>
+    handleGo: function(e) {
+      ReactDOM.render(
+        <SecondPage />,
+        document.getElementById('container')
+      );
+    }
 
-                </div>;
+  });
+
+  var SecondPage = React.createClass({
+
+    render: function() {
+      return
+      <div>
+        <h1>Hello!</h1>
+        <input type="button" value="go back" onClick={this.handleBack}/>
+      </div>;
 
     },
 
     handleBack: function(e) {
       ReactDOM.render(
-          <SearchExample />,
-          document.getElementById('container')
+        <FirstPage />,
+        document.getElementById('container')
       );
-
-    },
-
-    handleClick: function(e) {
-
-      ReactDOM.render(
-          <div>
-            <h1>Hello!</h1>
-            <input type="button" value="go back" onClick={this.handleBack}/>
-          </div>,
-          document.getElementById('container')
-
-      )
     }
 
-});
+  });
 
-
-
-
-// Render the SearchExample component on the page
-
-ReactDOM.render(
-    <SearchExample />,
+  ReactDOM.render(
+    <FirstPage />,
     document.getElementById('container')
-);
+  );
 
-//]]>
 </script>
 
 
