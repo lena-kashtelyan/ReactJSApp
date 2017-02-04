@@ -39,6 +39,11 @@ var SearchExample = React.createClass({
 
     },
 
+    handleClick: function(e) {
+
+        //go to the next page
+    },
+
     render: function() {
 
 
@@ -54,7 +59,7 @@ var SearchExample = React.createClass({
               <br></br>
 
                     <input type="text" value={this.state.searchString} onChange={this.handleChange} placeholder="Zipcode" />
-                    <input type="button" value="GO" />
+                    <input type="button" value="GO" onClick={this.handleClick}/>
 
                 </div>;
 
