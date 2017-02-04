@@ -5,40 +5,40 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="googlebot" content="noindex, nofollow">
 
-  
-  
 
-  
-  
-  
 
-  
+
+
+
+
+
+
 
   <script type="text/javascript" src="/js/lib/dummy.js"></script>
 
-  
 
-  
 
-  
 
-  
+
+
+
+
     <link rel="stylesheet" type="text/css" href="/css/result-light.css">
-  
 
-  
-    
+
+
+
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.js"></script>
-    
-  
-    
+
+
+
       <script type="text/javascript" src="https://fb.me/react-with-addons-0.14.7.js"></script>
-    
-  
-    
+
+
+
       <script type="text/javascript" src="https://fb.me/react-dom-0.14.7.min.js"></script>
-    
-  
+
+
 
   <style type="text/css">
     * {
@@ -85,7 +85,7 @@ ul li{
     color: #7B8585;
     margin-bottom: 3px;
     position: relative;
-    
+
     transition: 0.3s;
 }
 
@@ -104,8 +104,8 @@ ul li:hover{
 
   <title>React Example 3 - Real-time search</title>
 
-  
-    
+
+
 
 
 <script type="application/javascript;version=1.7" language="JavaScript 1.7">//<![CDATA[
@@ -127,6 +127,7 @@ var SearchExample = React.createClass({
         // that was assigned to it. In our case this is this.state.searchString.
 
         this.setState({searchString:e.target.value});
+        
     },
 
     render: function() {
@@ -152,7 +153,7 @@ var SearchExample = React.createClass({
               <br></br>
               <br></br>
               <br></br>
-        
+
                     <input type="text" value={this.state.searchString} onChange={this.handleChange} placeholder="Zipcode" />
                     <input type="button" value="GO" />
 
@@ -170,10 +171,10 @@ ReactDOM.render(
     document.getElementById('container')
 );
 
-//]]> 
+//]]>
 </script>
 
-  
+
 </head>
 
 <body>
@@ -182,7 +183,7 @@ ReactDOM.render(
 <div id="container">
     <!-- This element's contents will be replaced with your component. -->
 </div>
-  
+
   <script>
   // tell the embed parent frame the height of the content
   if (window.parent && window.parent.parent){
@@ -196,4 +197,3 @@ ReactDOM.render(
 </body>
 
 </html>
-
