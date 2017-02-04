@@ -5,39 +5,12 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="googlebot" content="noindex, nofollow">
 
-  
-  
-
-  
-  
-  
-
-  
-
   <script type="text/javascript" src="/js/lib/dummy.js"></script>
-
-  
-
-  
-
-  
-
-  
     <link rel="stylesheet" type="text/css" href="/css/result-light.css">
-  
 
-  
-    
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.js"></script>
-    
-  
-    
-      <script type="text/javascript" src="https://fb.me/react-with-addons-0.14.7.js"></script>
-    
-  
-    
-      <script type="text/javascript" src="https://fb.me/react-dom-0.14.7.min.js"></script>
-    
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.js"></script>
+  <script type="text/javascript" src="https://fb.me/react-with-addons-0.14.7.js"></script>
+  <script type="text/javascript" src="https://fb.me/react-dom-0.14.7.min.js"></script>
   
 
   <style type="text/css">
@@ -102,11 +75,7 @@ ul li:hover{
 }
   </style>
 
-  <title>React Example 3 - Real-time search</title>
-
-  
-    
-
+  <title>Say What</title>
 
 <script type="application/javascript;version=1.7" language="JavaScript 1.7">//<![CDATA[
 
@@ -135,16 +104,6 @@ var SearchExample = React.createClass({
         var searchString = this.state.searchString.trim().toLowerCase();
 
 
-        if(searchString.length > 0){
-
-            // We are searching. Filter the results.
-
-            libraries = libraries.filter(function(l){
-                return l.name.toLowerCase().match( searchString );
-            });
-
-        }
-
         return <div>
         			<h1>Intro</h1>
               <p>This is an app that empowers you to voice your political opinion by streamlining the political interaction process! We do this by finding what government officials are most relevant to where you live, getting their contact info, estimating what impact you can have with them, and then providing templates for you to call, email, or write to your official. With our app, we hope to streamline your political action so that it takes only 5 or 10 minutes to do. Enter your zip below to begin!</p>
@@ -160,7 +119,6 @@ var SearchExample = React.createClass({
 
     }
 });
-
 
 
 // Render the SearchExample component on the page
