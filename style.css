@@ -122,3 +122,50 @@ ul li:hover{
 .medium {
 
 }
+
+.template {
+  /*display: inline-block;*/
+  width: 300px;
+  height: 480px;
+  float: left;
+}
+
+.templates {
+  width: 700px;
+  height: 500px;
+  overflow-x: scroll;
+  overflow-y: scroll;
+}
+
+.wrapper {
+        background:#EFEFEF;
+        box-shadow: 1px 1px 10px #999;
+        margin: auto;
+        text-align: center;
+        position: relative;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        margin-bottom: 20px !important;
+        width: 400px;
+        height: 500px;
+        padding-top: 5px;
+    }
+
+    .scrolls {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        height: 500px;
+        white-space:nowrap
+    }
+
+    .template {
+        box-shadow: 1px 1px 10px #999;
+        margin: 2px;
+        max-height: 500px;
+        cursor: pointer;
+        display:inline-block;
+        *display:inline;
+        *zoom:1;
+        vertical-align:top;
+    }

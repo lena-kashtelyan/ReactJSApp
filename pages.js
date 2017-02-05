@@ -1,9 +1,10 @@
 import React from 'react';
 import {Grid, Row, Column} from 'react-cellblock';
-import { SpringGrid, CSSGrid, measureItems, makeResponsive  } from 'react-stonecutter';
-import {ScrollBox, ScrollAxes, FastTrack} from 'react-scroll-box';
-
-
+// import { SpringGrid, CSSGrid, measureItems, makeResponsive  } from 'react-stonecutter';
+// import {ScrollBox, ScrollAxes, FastTrack} from 'react-scroll-box';
+// import Slider from 'react-slick';
+// import CarouselItem from 'slick-carousel';
+import Carousel from 'nuka-carousel';
 
 
 var FirstPage = React.createClass({
@@ -64,7 +65,7 @@ var FirstPage = React.createClass({
           <Row>
             <Column width="1/3" className="leftPanel">
             <Row>
-              <div className="issues">
+              <div className="issues"v>
                 {issues.map(function(i) {return <div className='issue' onClick={function(e) {this.issueSelection=i; console.log(this.issueSelection)}.bind(this)}>
                 <p>{i}</p></div>},this)}
               </div>
@@ -102,8 +103,11 @@ var FirstPage = React.createClass({
     },
 
     handleForth: function(e) {
+
+      var templates = ["templateOne", "templateTwo", "templateTwo", "templateTwo"];
+
       ReactDOM.render(
-        <ThirdPage />,
+        <ThirdPage items={templates}/>,
         document.getElementById('container')
       );
     }
@@ -112,14 +116,67 @@ var FirstPage = React.createClass({
 
   var ThirdPage = React.createClass({
 
+    getInitialState : function() {
+      return {templateSelection : ''};
+    },
+
     render: function() {
+
+      console.log("rendering third page");
+
+      var templates = this.props.items;
+
       return <div>
         <h1>Third Page!</h1>
+
+        <div className="wrapper">
+          <div className="scrolls">
+
+          <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
+            <div className="carousel-inner" role="listbox">
+              <div className="carousel-item active">
+                <div class="card" style="width: 20rem;">
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make up the bulk of the cards content.
+                  </p>
+                </div>
+              </div>
+              <div className="carousel-item">
+                <div class="card" style="width: 20rem;">
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make up the bulk of the cards content.
+                  </p>
+                </div>
+              </div>
+              <div className="carousel-item">
+                <div class="card" style="width: 20rem;">
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make up the bulk of the cards content.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span className="sr-only">Previous</span>
+            </a>
+            <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span className="carousel-control-next-icon" aria-hidden="true"></span>
+              <span className="sr-only">Next</span>
+            </a>
+          </div>
+
+          </div>
+        </div>
+
         <input type="button" value="go back" onClick={this.handleBack}/>
         <input type="button" value="go on" onClick={this.handleForth}/>
       </div>;
 
     },
+
+    //            {templates.map(function(i) {return <div className='template' onClick={function(e) {this.templateSelection=i; console.log(this.templateSelection)}.bind(this)}>
+    //            {i}</div>},this)}
 
     handleBack: function(e) {
 
