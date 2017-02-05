@@ -169,3 +169,7 @@ ul li:hover{
         *zoom:1;
         vertical-align:top;
     }
+
+    .card-block {
+        height: 400px !important;
+    }

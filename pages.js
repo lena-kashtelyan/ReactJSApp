@@ -155,21 +155,21 @@ var FirstPage = React.createClass({
           <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
             <div className="carousel-inner" role="listbox">
               <div className="carousel-item active">
-                <div className="card" style="width: 20rem;">
+                <div className="card">
+                  <div className="card-block">
+                    templates[0];
+                  </div>
+                </div>
+              </div>
+              <div className="carousel-item">
+                <div className="card">
                   <p className="card-text">
                     Some quick example text to build on the card title and make up the bulk of the cards content.
                   </p>
                 </div>
               </div>
               <div className="carousel-item">
-                <div className="card" style="width: 20rem;">
-                  <p className="card-text">
-                    Some quick example text to build on the card title and make up the bulk of the cards content.
-                  </p>
-                </div>
-              </div>
-              <div className="carousel-item">
-                <div className="card" style="width: 20rem;">
+                <div className="card">
                   <p className="card-text">
                     Some quick example text to build on the card title and make up the bulk of the cards content.
                   </p>
