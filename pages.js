@@ -55,18 +55,25 @@ var FirstPage = React.createClass({
       var reps = this.props.items.two;
       return <div>
         <h1>Second Page!</h1>
-        <input type="button" value="go back" onClick={this.handleBack}/>
-        <input type="button" value="go on" onClick={this.handleForth}/>
+
         <Grid>
           <Row>
-            <Column width="1/3" className="blackCol">
-            {issues.map(function(i) {return <div className='issue'>{i}</div>})}
+            <Column width="1/3">
+            {issues.map(function(i) {return <div className='issue'><p>{i}</p></div>})}
             </Column>
-            <Column width="2/3">
-                {reps.map(function(r) {return <div className='rep'>{r.name}</div>})}
+            <Column width="2/3" id="repPanel">
+                {reps.map(function(r) {return <div className='rep'>
+                <p>{r.name}</p>
+                <p>{r.state}</p>
+                <p>{r.party}</p>
+                <img src={r.picture} className="portrait"/>
+                </div>})}
             </Column>
           </Row>
         </Grid>
+
+        <input type="button" value="go back" onClick={this.handleBack}/>
+        <input type="button" value="go on" onClick={this.handleForth}/>
       </div>;
     },
 

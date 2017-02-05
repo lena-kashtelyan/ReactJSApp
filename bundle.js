@@ -9260,33 +9260,9 @@ var FirstPage = _react2.default.createClass({
 
 });
 
-// <SpringGrid
-//   component="ul"
-//   columns={3}
-//   columnWidth={150}
-//   gutterWidth={5}
-//   gutterHeight={5}
-//   itemHeight={200}
-//   springConfig={{ stiffness: 170, damping: 26 }}>
-//   <li key="A">A</li>
-//   <li key="B">B</li>
-//   <li key="C">C</li>
-// </SpringGrid>
-
 var SecondPage = _react2.default.createClass({
   displayName: 'SecondPage',
 
-
-  //makePanel func will need:
-  //id, state, first name, last name, district, title
-
-  makePanel: function makePanel(r) {
-    return _react2.default.createElement(
-      'div',
-      { className: 'rep' },
-      r.name
-    );
-  },
 
   render: function render() {
     var issues = this.props.items.one;
@@ -9299,8 +9275,6 @@ var SecondPage = _react2.default.createClass({
         null,
         'Second Page!'
       ),
-      _react2.default.createElement('input', { type: 'button', value: 'go back', onClick: this.handleBack }),
-      _react2.default.createElement('input', { type: 'button', value: 'go on', onClick: this.handleForth }),
       _react2.default.createElement(
         _reactCellblock.Grid,
         null,
@@ -9309,7 +9283,7 @@ var SecondPage = _react2.default.createClass({
           null,
           _react2.default.createElement(
             _reactCellblock.Column,
-            { width: '1/3', className: 'blackCol' },
+            { width: '1/3' },
             issues.map(function (i) {
               return _react2.default.createElement(
                 'div',
@@ -9321,10 +9295,33 @@ var SecondPage = _react2.default.createClass({
           _react2.default.createElement(
             _reactCellblock.Column,
             { width: '2/3' },
-            reps.map(makePanel)
+            reps.map(function (r) {
+              return _react2.default.createElement(
+                'div',
+                { className: 'rep' },
+                _react2.default.createElement(
+                  'p',
+                  null,
+                  r.name
+                ),
+                _react2.default.createElement(
+                  'p',
+                  null,
+                  r.state
+                ),
+                _react2.default.createElement(
+                  'p',
+                  null,
+                  r.party
+                ),
+                _react2.default.createElement('img', { src: r.picture, className: 'portrait' })
+              );
+            })
           )
         )
-      )
+      ),
+      _react2.default.createElement('input', { type: 'button', value: 'go back', onClick: this.handleBack }),
+      _react2.default.createElement('input', { type: 'button', value: 'go on', onClick: this.handleForth })
     );
   },
 

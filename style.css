@@ -78,7 +78,24 @@ ul li:hover{
     border: 2px;
     border-color:#212fc6;
     width: 50%;
-    height: 200px;
+    height: 300px;
+    float: left;
 }
 
+.rep:hover{
+    background-color:#d8f2f1;
+}
 
+.issue {
+    background-color:#3a47d1;
+    height: 50px;
+    width: 100%;
+    border: 2px;
+    border-color:#212fc6;
+    float: left;
+}
+
+.portrait {
+  width: 120px;
+  height: 240px;
+}
