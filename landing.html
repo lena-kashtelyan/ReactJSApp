@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
 
@@ -16,17 +18,19 @@
       <div class="col-lg-1 col-md-1"></div>
       <div class="col-lg-10 col-md-10">
         <ul class="nav justify-content-end">
+          <a class="navbar-brand" href="#"><span style="color:DarkRed">say</span><span style="color:MidnightBlue">What?</span></a>
+
           <li class="nav-item">
-            <a class="nav-link active" href="#">Locating</a>
+            <a class="nav-link active" href="#"><span style="color:DarkGoldenrod">locating</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#">Contacting</a>
+            <a class="nav-link disabled" href="#"><span style="color:SandyBrown">contacting</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#">Writing</a>
+            <a class="nav-link disabled" href="#"><span style="color:RosyBrown">writing</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#">Sending</a>
+            <a class="nav-link disabled" href="#"><span style="color:Tan">sending</span></a>
           </li>
         </ul>
       </div>
@@ -39,8 +43,8 @@
         <div class="container">
           <div class="card" style="width: 538px">
             <div class="card-block">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>            </div>
+              <h4 class="card-title">welcome to sayWhat?</h4>
+              <p class="card-text">put in your zipcode and we will help you find a representative to talk to. we can also help you phrase your thoughts — just try it!</p>            </div>
           </div>
 
           <div class="container" style="height:30px"></div>
@@ -48,7 +52,9 @@
           <div class="input-group input-group-lg">
             <span class="input-group-addon" id="basic-addon1">zipcode</span>
             <input type="text" class="form-control" placeholder="12345" aria-describedby="basic-addon1">
-            <span class="input-group-addon">--></span>
+            <button type="button" class="btn btn-secondary btn-lg">
+              <i class="fa fa-arrow-right"></i>
+            </button>
           </div>
 
         </div>
