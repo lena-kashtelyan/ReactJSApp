@@ -61,7 +61,7 @@ var FirstPage = React.createClass({
             <Column width="1/3">
             {issues.map(function(i) {return <div className='issue'><p>{i}</p></div>})}
             </Column>
-            <Column width="2/3" id="repPanel">
+            <Column width="2/3" className="repPanel">
                 {reps.map(function(r) {return <div className='rep'>
                 <p>{r.name}</p>
                 <p>{r.state}</p>
