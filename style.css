@@ -82,8 +82,9 @@ ul li:hover{
     float: left;
 }
 
-.rep:hover{
+.issue:hover{
     background-color:#d8f2f1;
+    font-color: #3a47d1;
 }
 
 .issue {
