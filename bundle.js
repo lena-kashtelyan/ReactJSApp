@@ -9264,9 +9264,14 @@ var SecondPage = _react2.default.createClass({
   displayName: 'SecondPage',
 
 
+  getInitialState: function getInitialState() {
+    return { issueSelection: '', repSelection: '' };
+  },
+
   render: function render() {
     var issues = this.props.items.one;
     var reps = this.props.items.two;
+    var issueSelection = "";
     return _react2.default.createElement(
       'div',
       null,
@@ -9287,18 +9292,26 @@ var SecondPage = _react2.default.createClass({
             issues.map(function (i) {
               return _react2.default.createElement(
                 'div',
-                { className: 'issue' },
-                i
+                { className: 'issue', onClick: function (e) {
+                    this.issueSelection = i;console.log(this.issueSelection);
+                  }.bind(this) },
+                _react2.default.createElement(
+                  'p',
+                  null,
+                  i
+                )
               );
-            })
+            }, this)
           ),
           _react2.default.createElement(
             _reactCellblock.Column,
-            { width: '2/3' },
+            { width: '2/3', id: 'repPanel' },
             reps.map(function (r) {
               return _react2.default.createElement(
                 'div',
-                { className: 'rep' },
+                { className: 'rep', onClick: function (e) {
+                    this.repSelection = r.name;console.log(this.repSelection);
+                  }.bind(this) },
                 _react2.default.createElement(
                   'p',
                   null,
@@ -9316,7 +9329,7 @@ var SecondPage = _react2.default.createClass({
                 ),
                 _react2.default.createElement('img', { src: r.picture, className: 'portrait' })
               );
-            })
+            }, this)
           )
         )
       ),
@@ -9326,10 +9339,7 @@ var SecondPage = _react2.default.createClass({
   },
 
   handleBack: function handleBack(e) {
-
-    var issues = ["immigration", "religious freedom"];
-    var reps = [{ name: "McCain", state: "Arizona", party: "Republican", picture: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg" }, { name: "McCain", state: "Arizona", party: "Republican", picture: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg" }, { name: "McCain", state: "Arizona", party: "Republican", picture: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg" }, { name: "McCain", state: "Arizona", party: "Republican", picture: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg" }, { name: "McCain", state: "Arizona", party: "Republican", picture: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg" }, { name: "McCain", state: "Arizona", party: "Republican", picture: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg" }, { name: "McCain", state: "Arizona", party: "Republican", picture: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg" }, { name: "McCain", state: "Arizona", party: "Republican", picture: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg" }];
-    ReactDOM.render(_react2.default.createElement(SecondPage, { items: { one: issues, two: reps } }), document.getElementById('container'));
+    ReactDOM.render(_react2.default.createElement(FirstPage, null), document.getElementById('container'));
   },
 
   handleForth: function handleForth(e) {
@@ -9357,7 +9367,10 @@ var ThirdPage = _react2.default.createClass({
   },
 
   handleBack: function handleBack(e) {
-    ReactDOM.render(_react2.default.createElement(SecondPage, null), document.getElementById('container'));
+
+    var issues = ["immigration", "religious freedom"];
+    var reps = [{ name: "McCain", state: "Arizona", party: "Republican", picture: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg" }, { name: "McCain", state: "Arizona", party: "Republican", picture: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg" }, { name: "McCain", state: "Arizona", party: "Republican", picture: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg" }, { name: "McCain", state: "Arizona", party: "Republican", picture: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg" }, { name: "McCain", state: "Arizona", party: "Republican", picture: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg" }, { name: "McCain", state: "Arizona", party: "Republican", picture: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg" }, { name: "McCain", state: "Arizona", party: "Republican", picture: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg" }, { name: "McCain", state: "Arizona", party: "Republican", picture: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg" }];
+    ReactDOM.render(_react2.default.createElement(SecondPage, { items: { one: issues, two: reps } }), document.getElementById('container'));
   },
 
   handleForth: function handleForth(e) {
