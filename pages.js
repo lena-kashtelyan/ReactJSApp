@@ -62,12 +62,23 @@ var FirstPage = React.createClass({
 
         <Grid>
           <Row>
-            <Column width="1/3">
-            {issues.map(function(i) {return <div className='issue' onClick={function(e) {this.issueSelection=i; console.log(this.issueSelection)}.bind(this)}>
-            <p>{i}</p></div>},this)}
+            <Column width="1/3" className="leftPanel">
+            <Row>
+              <div className="issues">
+                {issues.map(function(i) {return <div className='issue' onClick={function(e) {this.issueSelection=i; console.log(this.issueSelection)}.bind(this)}>
+                <p>{i}</p></div>},this)}
+              </div>
+            </Row>
+            <Row id='media'>
+              <div>
+                <Column width="1/3"><div className="medium">call</div></Column>
+                <Column width="1/3"><div className="medium">email</div></Column>
+                <Column width="1/3"><div className="medium">write</div></Column>
+              </div>
+            </Row>
             </Column>
+
             <Column width="2/3" className="repPanel">
-            <Column width="2/3" id="repPanel">
                 {reps.map(function(r) {return <div className='rep' onClick={function(e) {this.repSelection=r.name; console.log(this.repSelection)}.bind(this)}>
                 <p>{r.name}</p>
                 <p>{r.state}</p>

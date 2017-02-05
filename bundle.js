@@ -9288,24 +9288,67 @@ var SecondPage = _react2.default.createClass({
           null,
           _react2.default.createElement(
             _reactCellblock.Column,
-            { width: '1/3' },
-            issues.map(function (i) {
-              return _react2.default.createElement(
+            { width: '1/3', className: 'leftPanel' },
+            _react2.default.createElement(
+              _reactCellblock.Row,
+              null,
+              _react2.default.createElement(
                 'div',
-                { className: 'issue', onClick: function (e) {
-                    this.issueSelection = i;console.log(this.issueSelection);
-                  }.bind(this) },
+                { className: 'issues' },
+                issues.map(function (i) {
+                  return _react2.default.createElement(
+                    'div',
+                    { className: 'issue', onClick: function (e) {
+                        this.issueSelection = i;console.log(this.issueSelection);
+                      }.bind(this) },
+                    _react2.default.createElement(
+                      'p',
+                      null,
+                      i
+                    )
+                  );
+                }, this)
+              )
+            ),
+            _react2.default.createElement(
+              _reactCellblock.Row,
+              { id: 'media' },
+              _react2.default.createElement(
+                'div',
+                null,
                 _react2.default.createElement(
-                  'p',
-                  null,
-                  i
+                  _reactCellblock.Column,
+                  { width: '1/3' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'medium' },
+                    'call'
+                  )
+                ),
+                _react2.default.createElement(
+                  _reactCellblock.Column,
+                  { width: '1/3' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'medium' },
+                    'email'
+                  )
+                ),
+                _react2.default.createElement(
+                  _reactCellblock.Column,
+                  { width: '1/3' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'medium' },
+                    'write'
+                  )
                 )
-              );
-            }, this)
+              )
+            )
           ),
           _react2.default.createElement(
             _reactCellblock.Column,
-            { width: '2/3', id: 'repPanel' },
+            { width: '2/3', className: 'repPanel' },
             reps.map(function (r) {
               return _react2.default.createElement(
                 'div',
