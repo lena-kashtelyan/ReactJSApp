@@ -4,11 +4,20 @@ import Box from 'react-layout-components';
 var FirstPage = React.createClass({
 
     getInitialState: function(){
-        return { searchString: '' };
+        // set default validZipcode to true to hide error message
+        // until an attempted submission
+        return { searchString: '' , isValidZipcode: true};
     },
 
     handleChange: function(e){
-        this.setState({searchString:e.target.value});
+        this.setState({searchString:e.target.value, isValidZipcode:this.state.isValidZipcode});
+    },
+
+    checkValidZipcode: function(){
+        if (this.state.searchString.length == 5 && !isNaN(this.state.searchString)){
+            return true;
+        }
+        return false;
     },
 
     render: function() {
@@ -16,17 +25,22 @@ var FirstPage = React.createClass({
         return <div>
         			<h1>Intro</h1>
               <p>This is an app that empowers you to voice your political opinion by streamlining the political interaction process! We do this by finding what government officials are most relevant to where you live, getting their contact info, estimating what impact you can have with them, and then providing templates for you to call, email, or write to your official. With our app, we hope to streamline your political action so that it takes only 5 or 10 minutes to do. Enter your zip below to begin!</p>
-              <br></br><br></br><br></br><br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              {this.state.isValidZipcode ? null : <p>Please enter valid 5 digit zipcode</p>}
               <input type="text" value={this.state.searchString} onChange={this.handleChange} placeholder="Zipcode" />
               <input type="button" value="GO" onClick={this.handleGo}/>
               </div>;
     },
 
     handleGo: function(e) {
+        this.setState({searchString:this.state.searchString, isValidZipcode:this.checkValidZipcode()});
+    if (this.checkValidZipcode()){
       ReactDOM.render(
         <SecondPage />,
         document.getElementById('container')
-      );
+      );}
     }
 
   });
