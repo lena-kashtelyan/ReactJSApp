@@ -1,5 +1,8 @@
+import React from 'react';
+import {Grid, Row, Column} from 'react-cellblock';
 import { SpringGrid, CSSGrid, measureItems, makeResponsive  } from 'react-stonecutter';
-import Box from 'react-layout-components';
+import {ScrollBox, ScrollAxes, FastTrack} from 'react-scroll-box';
+
 
 var FirstPage = React.createClass({
 
@@ -14,7 +17,7 @@ var FirstPage = React.createClass({
     render: function() {
         var searchString = this.state.searchString.trim().toLowerCase();
         return <div>
-        			<h1>Intro</h1>
+        			<h1>hello there</h1>
               <p>This is an app that empowers you to voice your political opinion by streamlining the political interaction process! We do this by finding what government officials are most relevant to where you live, getting their contact info, estimating what impact you can have with them, and then providing templates for you to call, email, or write to your official. With our app, we hope to streamline your political action so that it takes only 5 or 10 minutes to do. Enter your zip below to begin!</p>
               <br></br><br></br><br></br><br></br>
               <input type="text" value={this.state.searchString} onChange={this.handleChange} placeholder="Zipcode" />
@@ -22,9 +25,22 @@ var FirstPage = React.createClass({
               </div>;
     },
 
+
+
     handleGo: function(e) {
+
+
+      var issues = ["immigration", "religious freedom"]
+      var reps = [{name : "McCain", state : "Arizona", party : "Republican", picture : "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg"},
+                  {name : "McCain", state : "Arizona", party : "Republican", picture : "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg"},
+                  {name : "McCain", state : "Arizona", party : "Republican", picture : "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg"},
+                  {name : "McCain", state : "Arizona", party : "Republican", picture : "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg"},
+                  {name : "McCain", state : "Arizona", party : "Republican", picture : "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg"},
+                  {name : "McCain", state : "Arizona", party : "Republican", picture : "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg"},
+                  {name : "McCain", state : "Arizona", party : "Republican", picture : "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg"},
+                  {name : "McCain", state : "Arizona", party : "Republican", picture : "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg"}]
       ReactDOM.render(
-        <SecondPage />,
+        <SecondPage items={ { one : issues, two : reps } } />,
         document.getElementById('container')
       );
     }
@@ -46,24 +62,46 @@ var FirstPage = React.createClass({
 
   var SecondPage = React.createClass({
 
+  //makePanel func will need:
+  //id, state, first name, last name, district, title
+
+  makePanel: function(r) {
+    return <div className='rep'>{r.name}</div>
+  },
+
     render: function() {
+      var issues = this.props.items.one;
+      var reps = this.props.items.two;
       return <div>
         <h1>Second Page!</h1>
         <input type="button" value="go back" onClick={this.handleBack}/>
         <input type="button" value="go on" onClick={this.handleForth}/>
-        <Box width={300} height={500}>
-          <Box justifyContent="center" alignItems="flex-start">
-            <Box flex={3}>Flex 3</Box>
-            <Box flex="1 0 auto" alignSelf="baseline">Flex 1</Box>
-        </Box>
-      </Box>
+        <Grid>
+          <Row>
+            <Column width="1/3" className="blackCol">
+            {issues.map(function(i) {return <div className='issue'>{i}</div>})}
+            </Column>
+            <Column width="2/3">
+                {reps.map(makePanel)}
+            </Column>
+          </Row>
+        </Grid>
       </div>;
-
     },
 
     handleBack: function(e) {
+
+      var issues = ["immigration", "religious freedom"]
+      var reps = [{name : "McCain", state : "Arizona", party : "Republican", picture : "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg"},
+                  {name : "McCain", state : "Arizona", party : "Republican", picture : "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg"},
+                  {name : "McCain", state : "Arizona", party : "Republican", picture : "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg"},
+                  {name : "McCain", state : "Arizona", party : "Republican", picture : "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg"},
+                  {name : "McCain", state : "Arizona", party : "Republican", picture : "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg"},
+                  {name : "McCain", state : "Arizona", party : "Republican", picture : "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg"},
+                  {name : "McCain", state : "Arizona", party : "Republican", picture : "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg"},
+                  {name : "McCain", state : "Arizona", party : "Republican", picture : "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/John_McCain_official_portrait_2009.jpg/220px-John_McCain_official_portrait_2009.jpg"}]
       ReactDOM.render(
-        <FirstPage />,
+        <SecondPage items={ { one : issues, two : reps } } />,
         document.getElementById('container')
       );
     },

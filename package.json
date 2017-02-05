@@ -23,7 +23,9 @@
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.22.0",
     "react": "^15.4.2",
+    "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.2",
+    "react-scroll-box": "^0.3.3-beta",
     "react-stonecutter": "^0.3.4",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.3.0"
