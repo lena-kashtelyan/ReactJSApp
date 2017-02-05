@@ -77,6 +77,8 @@ ul li:hover{
     background-color:#3a47d1;
     border: 2px;
     border-color:#212fc6;
+    width: 50%;
+    height: 200px;
 }
 
 
