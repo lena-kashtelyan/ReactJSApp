@@ -47,27 +47,8 @@ var FirstPage = React.createClass({
 
   });
 
-  // <SpringGrid
-  //   component="ul"
-  //   columns={3}
-  //   columnWidth={150}
-  //   gutterWidth={5}
-  //   gutterHeight={5}
-  //   itemHeight={200}
-  //   springConfig={{ stiffness: 170, damping: 26 }}>
-  //   <li key="A">A</li>
-  //   <li key="B">B</li>
-  //   <li key="C">C</li>
-  // </SpringGrid>
-
   var SecondPage = React.createClass({
 
-  //makePanel func will need:
-  //id, state, first name, last name, district, title
-
-  makePanel: function(r) {
-    return <div className='rep'>{r.name}</div>
-  },
 
     render: function() {
       var issues = this.props.items.one;
@@ -82,7 +63,7 @@ var FirstPage = React.createClass({
             {issues.map(function(i) {return <div className='issue'>{i}</div>})}
             </Column>
             <Column width="2/3">
-                {reps.map(makePanel)}
+                {reps.map(function(r) {return <div className='rep'>{r.name}</div>})}
             </Column>
           </Row>
         </Grid>
